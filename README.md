@@ -9,6 +9,7 @@ A step-by-step implementation of **Fisher's Linear Discriminant Analysis (LDA)**
 ## Table of Contents
 
 - [Overview](#overview)
+- [Interactive Web App](#interactive-web-app)
 - [Mathematical Foundation](#mathematical-foundation)
 - [Step-by-Step Walkthrough](#step-by-step-walkthrough)
 - [Getting Started](#getting-started)
@@ -32,6 +33,28 @@ This project demonstrates LDA on the [Iris dataset](https://archive.ics.uci.edu/
 | `LDA().fit(X, y).transform(X)` | Full derivation in ~440 lines of readable Python |
 | Hidden internals | Every matrix (`Sw`, `Sb`, eigenvectors) printed & explained |
 | No visual intuition | 6 publication-quality plots showing each stage |
+
+---
+
+## Interactive Web App
+
+The project includes an **interactive LDA Explorer** (`index.html`) that lets you visualise and manipulate the algorithm in real time — no server required, just open the file in your browser.
+
+### Features
+
+- **Rotatable discriminant axis** — use a slider to rotate the projection axis away from the optimal direction and watch how the 2D scatter plot and 1D projections respond instantly
+- **Live 1D number-line projection** — data points are shown as dots on a number line (beeswarm layout) instead of a histogram, making individual projections easy to track as the axis rotates
+- **Flower classifier** — adjust petal length and petal width sliders to place a test point and see its real-time classification, projection score, and threshold
+- **Fisher's ratio bar** — a live gauge showing how the current axis angle compares to the optimal Fisher criterion value
+- **Sweep animation** — hit **▶ Sweep** to automatically rotate the axis through 180° and visually understand why the LDA direction is optimal
+- **Accuracy tracker** — see how classification accuracy changes as you rotate away from the optimal axis
+
+### Quick Start
+
+```bash
+open index.html        # macOS
+# or just double-click index.html in your file explorer
+```
 
 ---
 
@@ -188,6 +211,7 @@ The script will print detailed output for each step and display/save **6 PNG plo
 ```
 .
 ├── lda_from_scratch.py        # Main script — full LDA pipeline
+├── index.html                 # Interactive LDA Explorer web app
 ├── step1_scatter.png          # 2D scatter of Setosa vs Versicolor
 ├── step2_marginals.png        # Per-feature histograms
 ├── step6_axis.png             # Discriminant axis overlaid on scatter
